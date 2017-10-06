@@ -1,10 +1,14 @@
-function getIssues() {
+function getIssues(res) {
+  var repo = 'javascript-fetch-lab'
+  fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`)
+    .then(res => {res.json()
+      .then(data => {showIssues(data)})})
 }
 
 function showIssues(res) {
   document.getElementById("issues").innerHTML = ""
   var results = "<ul>"
-  res.forEach(issue => {  
+  res.forEach(issue => {
     results += `<li>${issue.title}</li>`
   })
   results += "</ul>"
