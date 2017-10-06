@@ -1,5 +1,5 @@
 function getIssues(res) {
-  var repo = 'javascript-fetch-lab'
+  var repo = 'javascript-fetch-lab-v-000'
   fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`).
     then(res => {res.json().
       then(data => {showIssues(data)})})
@@ -20,7 +20,7 @@ function createIssue() {
   var body = document.getElementById('body').value
   var postData = { title: title, body: body }
 
-  var repo = 'javascript-fetch-lab'
+  var repo = 'javascript-fetch-lab-v-000'
   fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`, {
     method: 'post',
     body: JSON.stringify(postData),
@@ -35,7 +35,7 @@ function showResults(json) {
 
 function forkRepo() {
   const repo = 'javascript-fetch-lab'
-  fetch(`https://api.github.com/repos/chipsaboy/${repo}/forks`, {
+  fetch(`https://api.github.com/repos/learn-co-curriculum/${repo}/forks`, {
     method: 'post',
     headers: {
       'Authorization': `token ${getToken()}`
