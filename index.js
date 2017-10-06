@@ -20,6 +20,10 @@ function forkRepo() {
   }).then(res => showForkedRepo(res));
 }
 
+function showForkedRepo(res) {
+  document.getElementById("results").innerHTML = `<a href="${res.url}">${res.url}</a>`
+}
+
 function getToken() {
   //change to your token to run in browser, but set
   //back to '' before committing so all tests pass
