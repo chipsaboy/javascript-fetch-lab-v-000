@@ -12,8 +12,11 @@ function createIssue() {
   var repo = 'javascript-fetch-lab'
   fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`, {
     method: 'post',
-    body:
-  })
+    body: JSON.stringify(postData),
+    headers: {
+      'Authorization': `token ${getToken()}`
+    }
+  }).then(res => getIssues(res))
 }
 
 function showResults(json) {
