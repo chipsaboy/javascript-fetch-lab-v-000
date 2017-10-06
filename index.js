@@ -1,8 +1,8 @@
 function getIssues(res) {
   var repo = 'javascript-fetch-lab'
-  fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`)
-    .then(res => {res.json()
-      .then(data => {showIssues(data)})})
+  fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`).
+    then(res => {res.json().
+      then(data => {showIssues(data)})})
 }
 
 function showIssues(res) {
