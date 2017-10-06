@@ -1,14 +1,15 @@
 function getIssues(res) {
-  var repo = 'javascript-fetch-lab-v-000'
-  fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`).
+  var myrepo = 'javascript-fetch-lab-v-000'
+  fetch(`https://api.github.com/repos/chipsaboy/${myrepo}/issues`).
     then(res => {res.json().
-      then(data => {showIssues(data)})})
+      then( data => {showIssues(data)})})
 }
+
 
 function showIssues(res) {
   document.getElementById("issues").innerHTML = ""
   var results = "<ul>"
-  res.forEach(issue => {
+  res.forEach(issue => {  
     results += `<li>${issue.title}</li>`
   })
   results += "</ul>"
@@ -20,17 +21,14 @@ function createIssue() {
   var body = document.getElementById('body').value
   var postData = { title: title, body: body }
 
-  var repo = 'javascript-fetch-lab-v-000'
-  fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`, {
+  var myrepo = 'javascript-fetch-lab-v-000'
+  fetch(`https://api.github.com/repos/chipsaboy/${myrepo}/issues`, {
     method: 'post',
     body: JSON.stringify(postData),
     headers: {
       'Authorization': `token ${getToken()}`
     }
   }).then(res => getIssues(res))
-}
-
-function showResults(json) {
 }
 
 function forkRepo() {
@@ -43,8 +41,8 @@ function forkRepo() {
   }).then(res => showForkedRepo(res));
 }
 
-function showForkedRepo(res) {
-  document.getElementById("results").innerHTML = `<a href="${res.url}">${res.url}</a>`
+function showForkedRepo(res){
+  document.getElementById("results").innerHTML = `<a href="${res.url}">${res.url}</a>` 
 }
 
 function getToken() {
