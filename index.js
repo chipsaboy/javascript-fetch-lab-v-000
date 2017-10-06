@@ -1,7 +1,14 @@
 function getIssues() {
 }
 
-function showIssues(json) {
+function showIssues(res) {
+  document.getElementById("issues").innerHTML = ""
+  var results = "<ul>"
+  res.forEach(issue => {  
+    results += `<li>${issue.title}</li>`
+  })
+  results += "</ul>"
+  document.getElementById("issues").innerHTML = results
 }
 
 function createIssue() {
