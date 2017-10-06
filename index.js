@@ -9,7 +9,7 @@ function getIssues(res) {
 function showIssues(res) {
   document.getElementById("issues").innerHTML = ""
   var results = "<ul>"
-  res.forEach(issue => {  
+  res.forEach(issue => {
     results += `<li>${issue.title}</li>`
   })
   results += "</ul>"
@@ -42,7 +42,7 @@ function forkRepo() {
 }
 
 function showForkedRepo(res){
-  document.getElementById("results").innerHTML = `<a href="${res.url}">${res.url}</a>` 
+  document.getElementById("results").innerHTML = `<a href="${res.url}">${res.url}</a>`
 }
 
 function getToken() {
