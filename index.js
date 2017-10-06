@@ -5,6 +5,9 @@ function showIssues(json) {
 }
 
 function createIssue() {
+  var title = document.getElementById('title').value
+  var body = document.getElementById('body').value
+  var postData = {title: title, body: body}
 }
 
 function showResults(json) {
