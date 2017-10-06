@@ -7,7 +7,13 @@ function showIssues(json) {
 function createIssue() {
   var title = document.getElementById('title').value
   var body = document.getElementById('body').value
-  var postData = {title: title, body: body}
+  var postData = { title: title, body: body }
+
+  var repo = 'javascript-fetch-lab'
+  fetch(`https://api.github.com/repos/chipsaboy/${repo}/issues`, {
+    method: 'post',
+    body:
+  })
 }
 
 function showResults(json) {
