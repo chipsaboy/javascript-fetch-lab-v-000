@@ -1,5 +1,5 @@
 function getIssues(res) {
-  var myrepo = 'javascript-fetch-lab-v-000'
+  var myrepo = 'javascript-fetch-lab'
   fetch(`https://api.github.com/repos/chipsaboy/${myrepo}/issues`).
     then(res => {res.json().
       then( data => {showIssues(data)})})
@@ -21,7 +21,7 @@ function createIssue() {
   var body = document.getElementById('body').value
   var postData = { title: title, body: body }
 
-  var myrepo = 'javascript-fetch-lab-v-000'
+  var myrepo = 'javascript-fetch-lab'
   fetch(`https://api.github.com/repos/chipsaboy/${myrepo}/issues`, {
     method: 'post',
     body: JSON.stringify(postData),
